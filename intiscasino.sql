@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 12. Mai 2023 um 11:58
+-- Erstellungszeit: 26. Mai 2023 um 10:53
 -- Server-Version: 10.4.27-MariaDB
 -- PHP-Version: 8.0.25
 
@@ -88,7 +88,7 @@ CREATE TABLE `spielakivitaet` (
   `Geiwnn` double DEFAULT NULL,
   `Verlusst` double DEFAULT NULL,
   `Kunden_ID` int(11) DEFAULT NULL,
-  `Gluecksspiel_ID` int(11) DEFAULT NULL
+  `Spiel_ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -129,13 +129,18 @@ ALTER TABLE `mitarbeiter`
 -- Indizes für die Tabelle `spiel`
 --
 ALTER TABLE `spiel`
-  ADD PRIMARY KEY (`Gluecksspiel_ID`);
+  ADD PRIMARY KEY (`Gluecksspiel_ID`),
+  ADD KEY `Tischnummer` (`Tischnummer`),
+  ADD KEY `Mitarbeiter_ID` (`Mitarbeiter_ID`),
+  ADD KEY `SpielAktivitaetsID` (`SpielAktivitaetsID`);
 
 --
 -- Indizes für die Tabelle `spielakivitaet`
 --
 ALTER TABLE `spielakivitaet`
-  ADD PRIMARY KEY (`SpielAktivaetsID`);
+  ADD PRIMARY KEY (`SpielAktivaetsID`),
+  ADD KEY `Kunden_ID` (`Kunden_ID`),
+  ADD KEY `Gluecksspiel_ID` (`Spiel_ID`);
 
 --
 -- Indizes für die Tabelle `spieltisch`
@@ -182,6 +187,26 @@ ALTER TABLE `spielakivitaet`
 --
 ALTER TABLE `spieltisch`
   MODIFY `Tischnummer` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints der exportierten Tabellen
+--
+
+--
+-- Constraints der Tabelle `spiel`
+--
+ALTER TABLE `spiel`
+  ADD CONSTRAINT `spiel_ibfk_1` FOREIGN KEY (`Gluecksspiel_ID`) REFERENCES `gluecksspiel` (`Glueckspieltyp_ID`),
+  ADD CONSTRAINT `spiel_ibfk_2` FOREIGN KEY (`Tischnummer`) REFERENCES `spieltisch` (`Tischnummer`),
+  ADD CONSTRAINT `spiel_ibfk_3` FOREIGN KEY (`Mitarbeiter_ID`) REFERENCES `mitarbeiter` (`Mitarbeiter_ID`),
+  ADD CONSTRAINT `spiel_ibfk_4` FOREIGN KEY (`SpielAktivitaetsID`) REFERENCES `spielakivitaet` (`SpielAktivaetsID`);
+
+--
+-- Constraints der Tabelle `spielakivitaet`
+--
+ALTER TABLE `spielakivitaet`
+  ADD CONSTRAINT `spielakivitaet_ibfk_1` FOREIGN KEY (`Kunden_ID`) REFERENCES `kunde` (`Kunden_ID`),
+  ADD CONSTRAINT `spielakivitaet_ibfk_2` FOREIGN KEY (`Spiel_ID`) REFERENCES `gluecksspiel` (`Glueckspieltyp_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
