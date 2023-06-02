@@ -41,7 +41,6 @@ CREATE TABLE `gluecksspiel` (
 
 CREATE TABLE `kunde` (
   `Kunden_ID` int(11) NOT NULL,
-  `Casinokontonummer` int(11) DEFAULT NULL,
   `Kontostand` double DEFAULT NULL,
   `Vorname` varchar(32) DEFAULT NULL,
   `Nachname` varchar(64) DEFAULT NULL
@@ -100,7 +99,7 @@ CREATE TABLE `spielaktivitaet` (
 CREATE TABLE `spieltisch` (
   `Tischnummer` int(11) NOT NULL,
   `Spieltyp` varchar(32) NOT NULL,
-  `Kapazität` int(11) DEFAULT NULL
+  `Kapazitaet` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

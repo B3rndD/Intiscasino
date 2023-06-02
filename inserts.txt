@@ -19,8 +19,64 @@ VALUES ('Daniel', 'Walker', 729157.42);
 INSERT INTO kunde (Vorname, Nachname, Kontostand)
 VALUES ('Harper', 'Cooper', 512493.10);
 
+INSERT INTO mitarbeiter(Vorname, Nachname, Gehalt, Addresse, HausNR, PLZ)
+VALUES ('Maximus', 'Steel', 2960.00, 'Goethestraße', '12a', '5678');
+INSERT INTO mitarbeiter(Vorname, Nachname, Gehalt, Addresse, HausNR, PLZ)
+VALUES ('Aurora', 'Frost', 3152.53, 'Mozartplatz', '155', '4284');
+INSERT INTO mitarbeiter(Vorname, Nachname, Gehalt, Addresse, HausNR, PLZ)
+VALUES ('Ethan', 'Drake', 2800.00, 'Schillerweg', '375', '9755');
+INSERT INTO mitarbeiter(Vorname, Nachname, Gehalt, Addresse, HausNR, PLZ)
+VALUES ('Seraphina', 'Rivers', 2976.00, 'Bachgasse', '78b', '2684');
+INSERT INTO mitarbeiter(Vorname, Nachname, Gehalt, Addresse, HausNR, PLZ)
+VALUES ('Xavier', 'Blackwood', 3050.20, 'Gutenbergallee', '11', '2064');
+INSERT INTO mitarbeiter(Vorname, Nachname, Gehalt, Addresse, HausNR, PLZ)
+VALUES ('Olivia', 'Knight', 4250.00, 'Humboldtstraße', '95', '3060');
+INSERT INTO mitarbeiter(Vorname, Nachname, Gehalt, Addresse, HausNR, PLZ)
+VALUES ('Asher', 'Monroe', 3000.00, 'Einsteinring', '17a', '6204');
+INSERT INTO mitarbeiter(Vorname, Nachname, Gehalt, Addresse, HausNR, PLZ)
+VALUES ('Penelope', 'Hart', 2865.00, 'Beethovenweg', '25a', '4722');
+INSERT INTO mitarbeiter(Vorname, Nachname, Gehalt, Addresse, HausNR, PLZ)
+VALUES ('Jasper', 'Brooks', 2960.00, 'Mendelssohnplatz', '3', '9720');
+INSERT INTO mitarbeiter(Vorname, Nachname, Gehalt, Addresse, HausNR, PLZ)
+VALUES ('Willow', 'Fox', 3065.00, 'Schopenhauerstraße', '154c', '2462');
 
-INSERT INTO spiel(Asdasdasdasd)
+INSERT INTO gluecksspiel(Spielname, Spieltyp)
+VALUES ('Blackjack', 'Kartenspiel');
+INSERT INTO gluecksspiel(Spielname, Spieltyp)
+VALUES ('Roulette', 'Tischspiel');
+INSERT INTO gluecksspiel(Spielname, Spieltyp)
+VALUES ('Texas Holdem', 'Kartenspiel');
+INSERT INTO gluecksspiel(Spielname, Spieltyp)
+VALUES ('three card Poker', 'Kartenspiel');
+INSERT INTO gluecksspiel(Spielname, Spieltyp)
+VALUES ('Craps', 'Würfelspiel');
+INSERT INTO gluecksspiel(Spielname, Spieltyp)
+VALUES ('Baccarat', 'Kartenspiel');
+
+INSERT INTO spieltisch(Spieltyp, Kapazitaet)
+VALUES (1, 4);
+INSERT INTO spieltisch(Spieltyp, Kapazitaet)
+VALUES (1, 4);
+INSERT INTO spieltisch(Spieltyp, Kapazitaet)
+VALUES (1, 4);
+INSERT INTO spieltisch(Spieltyp, Kapazitaet)
+VALUES (2, 6);
+INSERT INTO spieltisch(Spieltyp, Kapazitaet)
+VALUES (3, 8);
+INSERT INTO spieltisch(Spieltyp, Kapazitaet)
+VALUES (3, 8);
+INSERT INTO spieltisch(Spieltyp, Kapazitaet)
+VALUES (4, 3);
+INSERT INTO spieltisch(Spieltyp, Kapazitaet)
+VALUES (5, 6);
+INSERT INTO spieltisch(Spieltyp, Kapazitaet)
+VALUES (5, 6);
+INSERT INTO spieltisch(Spieltyp, Kapazitaet)
+VALUES (6, 4);
+
+
+INSERT INTO spiel(Gluecksspieltyp, Tischnummer, Mitarbeiter_ID, SpielAktivitaets_ID)
+VALUE (, , , )
 
 INSERT INTO spielaktivitaet (Kunden_ID, Spiel_ID, Gewinn, Verlust)
 VALUES (1, 1, 5, 0);
