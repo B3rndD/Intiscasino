@@ -75,8 +75,26 @@ INSERT INTO spieltisch(Spieltyp, Kapazitaet)
 VALUES (6, 4);
 
 
-INSERT INTO spiel(Gluecksspieltyp, Tischnummer, Mitarbeiter_ID, SpielAktivitaets_ID)
-VALUE (, , , )
+INSERT INTO spiel(Tischnummer, Mitarbeiter_ID, Gluecksspieltyp_ID)
+VALUE (1, 1, 1);
+INSERT INTO spiel(Tischnummer, Mitarbeiter_ID, Gluecksspieltyp_ID)
+VALUE (2, 2, 1);
+INSERT INTO spiel(Tischnummer, Mitarbeiter_ID, Gluecksspieltyp_ID)
+VALUE (3, 3, 1);
+INSERT INTO spiel(Tischnummer, Mitarbeiter_ID, Gluecksspieltyp_ID)
+VALUE (4, 4, 2);
+INSERT INTO spiel(Tischnummer, Mitarbeiter_ID, Gluecksspieltyp_ID)
+VALUE (5, 5, 3);
+INSERT INTO spiel(Tischnummer, Mitarbeiter_ID, Gluecksspieltyp_ID)
+VALUE (6, 6, 3);
+INSERT INTO spiel(Tischnummer, Mitarbeiter_ID, Gluecksspieltyp_ID)
+VALUE (7, 7, 4);
+INSERT INTO spiel(Tischnummer, Mitarbeiter_ID, Gluecksspieltyp_ID)
+VALUE (8, 8, 5);
+INSERT INTO spiel(Tischnummer, Mitarbeiter_ID, Gluecksspieltyp_ID)
+VALUE (9, 9, 5);
+INSERT INTO spiel(Tischnummer, Mitarbeiter_ID, Gluecksspieltyp_ID)
+VALUE (10, 10, 6);
 
 INSERT INTO spielaktivitaet (Kunden_ID, Spiel_ID, Gewinn, Verlust)
 VALUES (1, 1, 5, 0);
