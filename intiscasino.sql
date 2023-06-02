@@ -44,7 +44,7 @@ CREATE TABLE `kunde` (
   `Casinokontonummer` int(11) DEFAULT NULL,
   `Kontostand` double DEFAULT NULL,
   `Vorname` varchar(32) DEFAULT NULL,
-  `Dachname` varchar(64) DEFAULT NULL
+  `Nachname` varchar(64) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -74,7 +74,7 @@ CREATE TABLE `spiel` (
   `Gluecksspieltyp` int(11) DEFAULT NULL,
   `Tischnummer` int(11) DEFAULT NULL,
   `Mitarbeiter_ID` int(11) DEFAULT NULL,
-  `SpielAktivitaetsID` int(11) DEFAULT NULL
+  `SpielAktivitaets_ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -83,10 +83,10 @@ CREATE TABLE `spiel` (
 -- Tabellenstruktur für Tabelle `spielakivitaet`
 --
 
-CREATE TABLE `spielakivitaet` (
-  `SpielAktivaetsID` int(11) NOT NULL,
-  `Geiwnn` double DEFAULT NULL,
-  `Verlusst` double DEFAULT NULL,
+CREATE TABLE `spielaktivitaet` (
+  `SpielAktivaets_ID` int(11) NOT NULL,
+  `Gewinn` double DEFAULT NULL,
+  `Verlust` double DEFAULT NULL,
   `Kunden_ID` int(11) DEFAULT NULL,
   `Spiel_ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -132,13 +132,13 @@ ALTER TABLE `spiel`
   ADD PRIMARY KEY (`Gluecksspiel_ID`),
   ADD KEY `Tischnummer` (`Tischnummer`),
   ADD KEY `Mitarbeiter_ID` (`Mitarbeiter_ID`),
-  ADD KEY `SpielAktivitaetsID` (`SpielAktivitaetsID`);
+  ADD KEY `SpielAktivitaets_ID` (`SpielAktivitaets_ID`);
 
 --
 -- Indizes für die Tabelle `spielakivitaet`
 --
-ALTER TABLE `spielakivitaet`
-  ADD PRIMARY KEY (`SpielAktivaetsID`),
+ALTER TABLE `spielaktivitaet`
+  ADD PRIMARY KEY (`SpielAktivaets_ID`),
   ADD KEY `Kunden_ID` (`Kunden_ID`),
   ADD KEY `Gluecksspiel_ID` (`Spiel_ID`);
 
@@ -179,8 +179,8 @@ ALTER TABLE `spiel`
 --
 -- AUTO_INCREMENT für Tabelle `spielakivitaet`
 --
-ALTER TABLE `spielakivitaet`
-  MODIFY `SpielAktivaetsID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `spielaktivitaet`
+  MODIFY `SpielAktivaets_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT für Tabelle `spieltisch`
@@ -199,14 +199,14 @@ ALTER TABLE `spiel`
   ADD CONSTRAINT `spiel_ibfk_1` FOREIGN KEY (`Gluecksspiel_ID`) REFERENCES `gluecksspiel` (`Glueckspieltyp_ID`),
   ADD CONSTRAINT `spiel_ibfk_2` FOREIGN KEY (`Tischnummer`) REFERENCES `spieltisch` (`Tischnummer`),
   ADD CONSTRAINT `spiel_ibfk_3` FOREIGN KEY (`Mitarbeiter_ID`) REFERENCES `mitarbeiter` (`Mitarbeiter_ID`),
-  ADD CONSTRAINT `spiel_ibfk_4` FOREIGN KEY (`SpielAktivitaetsID`) REFERENCES `spielakivitaet` (`SpielAktivaetsID`);
+  ADD CONSTRAINT `spiel_ibfk_4` FOREIGN KEY (`SpielAktivitaets_ID`) REFERENCES `spielaktivitaet` (`SpielAktivaets_ID`);
 
 --
 -- Constraints der Tabelle `spielakivitaet`
 --
-ALTER TABLE `spielakivitaet`
-  ADD CONSTRAINT `spielakivitaet_ibfk_1` FOREIGN KEY (`Kunden_ID`) REFERENCES `kunde` (`Kunden_ID`),
-  ADD CONSTRAINT `spielakivitaet_ibfk_2` FOREIGN KEY (`Spiel_ID`) REFERENCES `gluecksspiel` (`Glueckspieltyp_ID`);
+ALTER TABLE `spielaktivitaet`
+  ADD CONSTRAINT `spielaktivitaet_ibfk_1` FOREIGN KEY (`Kunden_ID`) REFERENCES `kunde` (`Kunden_ID`),
+  ADD CONSTRAINT `spielaktivitaet_ibfk_2` FOREIGN KEY (`Spiel_ID`) REFERENCES `gluecksspiel` (`Glueckspieltyp_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

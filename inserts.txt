@@ -1,0 +1,44 @@
+INSERT INTO kunde (Vorname, Nachname, Kontostand)
+VALUES ('Benjamin', 'Lewis', 352481.32);
+INSERT INTO kunde (Vorname, Nachname, Kontostand)
+VALUES ('Charlotte', 'Charlotte', 759348.76);
+INSERT INTO kunde (Vorname, Nachname, Kontostand)
+VALUES ('Henry', 'Mitchell', 210495.62);
+INSERT INTO kunde (Vorname, Nachname, Kontostand)
+VALUES ('Emily', 'Thompson', 893271.89);
+INSERT INTO kunde (Vorname, Nachname, Kontostand)
+VALUES ('Samuel', 'Wright', 167824.95);
+INSERT INTO kunde (Vorname, Nachname, Kontostand)
+VALUES ('Grace', 'Carter', 408267.53);
+INSERT INTO kunde (Vorname, Nachname, Kontostand)
+VALUES ('Alexander', 'Phillips', 625376.89);
+INSERT INTO kunde (Vorname, Nachname, Kontostand)
+VALUES ('Olivia', 'Green', 349126.75);
+INSERT INTO kunde (Vorname, Nachname, Kontostand)
+VALUES ('Daniel', 'Walker', 729157.42);
+INSERT INTO kunde (Vorname, Nachname, Kontostand)
+VALUES ('Harper', 'Cooper', 512493.10);
+
+
+INSERT INTO spiel(Asdasdasdasd)
+
+INSERT INTO spielaktivitaet (Kunden_ID, Spiel_ID, Gewinn, Verlust)
+VALUES (1, 1, 5, 0);
+INSERT INTO spielaktivitaet (Kunden_ID, Spiel_ID, Gewinn, Verlust)
+VALUES (2, 1, 50, 0);
+INSERT INTO spielaktivitaet (Kunden_ID, Spiel_ID, Gewinn, Verlust)
+VALUES (2, 3, 0, 10);
+INSERT INTO spielaktivitaet (Kunden_ID, Spiel_ID, Gewinn, Verlust)
+VALUES (4 ,2, 15, 0);
+INSERT INTO spielaktivitaet (Kunden_ID, Spiel_ID, Gewinn, Verlust)
+VALUES (6, 3, 0, 30);
+INSERT INTO spielaktivitaet (Kunden_ID, Spiel_ID, Gewinn, Verlust)
+VALUES (4, 1, 20, 0);
+INSERT INTO spielaktivitaet (Kunden_ID, Spiel_ID, Gewinn, Verlust)
+VALUES (7, 2, 0, 5);
+INSERT INTO spielaktivitaet (Kunden_ID, Spiel_ID, Gewinn, Verlust)
+VALUES (1, 2, 0, 5);
+INSERT INTO spielaktivitaet (Kunden_ID, Spiel_ID, Gewinn, Verlust)
+VALUES (2, 1, 5, 0);
+INSERT INTO spielaktivitaet (Kunden_ID, Spiel_ID, Gewinn, Verlust)
+VALUES (1, 3, 0, 20);
