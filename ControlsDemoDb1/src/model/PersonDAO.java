@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.collections.FXCollections;
@@ -65,4 +66,45 @@ public class PersonDAO {
             }
         }
     }
+    
+    
+        public static void insert(Person person) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            con = DBConnector.connect();    // Verbindung zur DB
+            String sql = "INSERT INTO mitarbeiter (Vorname, Nachname, Gehalt, Addresse, HausNR, PLZ) "
+                    + "VALUES (?, ?, ?, ?, ?, ?)";
+            pstmt = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            pstmt.setString(1, person.getVorname());
+            pstmt.setString(2, person.getNachname());
+            pstmt.setDouble(3, person.getGehalt());
+            pstmt.setString(4, person.getAdresse());
+            pstmt.setString(5, person.getHausNR());
+            pstmt.setString(6, person.getPLZ());
+            pstmt.executeUpdate();
+
+            // Abrufen der generierten Mitarbeiter-ID
+            rs = pstmt.getGeneratedKeys();
+            if (rs.next()) {
+                int generatedID = rs.getInt(1);
+                person.setMitarbeiter_ID(generatedID);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+                DBConnector.closeConnection();
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
+            }
+        }}
 }
